@@ -24,6 +24,7 @@ export default async function handler(req, res) {
 
       res.status(200).json({ id: session.id });
     } catch (err) {
+      console.error("Stripe error:", err); // 👈 log to Vercel
       res.status(500).json({ error: err.message });
     }
   } else {
